@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://deeppesaaa.github.io/cn-portal-manguan-com/sitemap.xml

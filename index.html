@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>满冠体育 · 信息卡片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fbfbfb;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: #1f2a3a;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* 标题层级 */
+        .site-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: #121926;
+            margin-bottom: 0.4rem;
+            border-left: 4px solid #2563eb;
+            padding-left: 1rem;
+        }
+
+        .site-sub {
+            font-size: 0.95rem;
+            color: #5f6c80;
+            margin-bottom: 2.2rem;
+            padding-left: 1.2rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin: 2.2rem 0 1rem 0;
+            color: #1a2633;
+            letter-spacing: 0.01em;
+        }
+
+        h2:first-of-type {
+            margin-top: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #2c3a4b;
+            margin-bottom: 0.35rem;
+        }
+
+        /* 主视觉卡片 (hero 替换为说明卡片) */
+        .hero-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2rem 1.8rem 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.03);
+            margin-bottom: 2.5rem;
+            border: 1px solid #eef2f6;
+        }
+
+        .hero-card p {
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-card .strong-line {
+            font-size: 1.1rem;
+            font-weight: 450;
+            color: #1b2a41;
+        }
+
+        /* 用途卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .info-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.4rem 1.2rem 1.2rem 1.2rem;
+            border: 1px solid #edf1f7;
+            transition: box-shadow 0.15s;
+        }
+
+        .info-card:hover {
+            box-shadow: 0 8px 16px rgba(20, 30, 50, 0.03);
+        }
+
+        .info-card .card-icon {
+            display: inline-block;
+            font-size: 1.6rem;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card p {
+            font-size: 0.93rem;
+            color: #36454f;
+        }
+
+        /* 适合人群 */
+        .audience-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1rem;
+            margin: 1rem 0 0.2rem 0;
+        }
+
+        .audience-tag {
+            background: #f0f4fe;
+            color: #1e3a8a;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 450;
+            border: 1px solid #dce6f5;
+        }
+
+        /* 自然链接段落 */
+        .link-block {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.5rem 1.8rem;
+            margin: 2rem 0 2.5rem 0;
+            border: 1px solid #e9eef4;
+            font-size: 0.98rem;
+        }
+
+        .link-block a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b9d0f0;
+            padding-bottom: 1px;
+        }
+
+        .link-block a:hover {
+            color: #1d4ed8;
+            border-bottom-color: #2563eb;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            border-top: 1px solid #e6ecf3;
+            margin-top: 3rem;
+            padding-top: 1.8rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #1a2a3f;
+        }
+
+        .faq-item .a {
+            color: #405161;
+            font-size: 0.93rem;
+            margin-top: 0.15rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e4eaf1;
+            margin: 1.8rem 0;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #6b7b8f;
+            text-align: center;
+            margin-top: 3rem;
+            padding-bottom: 0.5rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 500px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+            .hero-card {
+                padding: 1.5rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .link-block {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 标题区域 -->
+    <div class="site-title">满冠体育</div>
+    <div class="site-sub">信息卡片 · 稳定入口说明</div>
+
+    <!-- 主视觉 / 介绍卡片 -->
+    <div class="hero-card">
+        <p class="strong-line">一个为体育爱好者与从业者整理的聚合入口。</p>
+        <p>这里汇集了赛事动态、场地信息、训练资源以及社区交流的快捷通道。页面结构清晰且持续维护，适合作为日常了解体育资讯的起点。</p>
+        <p style="margin-top: 1rem; font-size: 0.92rem; color: #4a5b72;">如果您正在寻找一个可以信赖的体育信息节点，可以从这里开始浏览。</p>
+    </div>
+
+    <!-- 用途卡片 -->
+    <h2>常见用途</h2>
+    <div class="card-grid">
+        <div class="info-card">
+            <div class="card-icon">📋</div>
+            <h3>赛事查询</h3>
+            <p>浏览近期竞赛日程、积分榜与赛果汇总，保持对项目动态的了解。</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon">🏟️</div>
+            <h3>场地指引</h3>
+            <p>收录合作训练场馆、开放时间及预约方式，便于安排活动。</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon">📘</div>
+            <h3>训练参考</h3>
+            <p>提供基础教学文章与动作拆解，适合不同阶段的学习者查阅。</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon">💬</div>
+            <h3>社区板块</h3>
+            <p>讨论区、组队邀约与经验分享，营造真实的交流氛围。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <h2>适合人群</h2>
+    <div class="audience-list">
+        <span class="audience-tag">业余爱好者</span>
+        <span class="audience-tag">校队/社团成员</span>
+        <span class="audience-tag">体育行业从业者</span>
+        <span class="audience-tag">家长/监护人</span>
+        <span class="audience-tag">健身入门者</span>
+    </div>
+    <p style="margin-top: 0.8rem; font-size: 0.93rem; color: #435160;">无论您是寻找训练伙伴、查询赛事日程，还是希望获得更系统的运动知识，都能在对应的版块找到所需信息。</p>
+
+    <!-- 自然链接段落 (嵌入链接) -->
+    <div class="link-block">
+        <p style="margin-bottom: 0.6rem;"><strong>稳定入口说明</strong></p>
+        <p>本介绍页是通往主站的一个简洁起始点。您可以通过 <a href="https://cn-portal-manguan.com">满冠体育</a> 直接访问完整资源目录。页面内容由编辑定期核对，链接与分类均经过梳理，以减少信息噪音。</p>
+        <p style="margin-top: 0.8rem;">如果您希望收藏或分享这个信息源，可以直接使用上述地址。该入口保持长期稳定，适合纳入浏览器书签或作为团队内部参考。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2>常见问题 · 摘要</h2>
+        <div class="faq-item">
+            <div class="q">Q: 页面更新频率如何？</div>
+            <div class="a">主站内容按周更新，重大赛事期间会临时增加动态板块。本介绍页仅作概述，具体时效性以站内标注为准。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q: 是否需要注册才能浏览？</div>
+            <div class="a">大部分信息类页面可直接阅读；部分社区功能（如发帖、组队）需注册账号，注册流程简单且免费。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q: 移动端浏览体验如何？</div>
+            <div class="a">采用响应式布局，手机与平板均可正常访问，菜单经过触控优化。</div>
+        </div>
+        <hr>
+        <p style="font-size: 0.9rem; color: #4f6075;">以上内容仅为摘要说明，更详细的条款与指引请以站内页面为准。</p>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        信息卡片 · 介绍页 &nbsp;|&nbsp; 满冠体育
+    </div>
+
+</div>
+</body>
+</html>
